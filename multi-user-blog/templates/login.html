@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>User Registration</title>
+
+	<link rel="stylesheet" href="/static/bootstrap.min.css">
+	<link rel="stylesheet" href="/static/main.css">
+	<link rel="stylesheet" href="/static/responsive.css">
+</head>
+
+<body>
+	<div class="container login-container">
+		<section class="login-div">
+			<h4 class="title-header">Sign in</h4>
+			<form action="/login" method="post" class="login-form">
+				<section class="form-group">
+					<img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+				</section>
+				<section class="form-group">
+					<label class="control-label">User Name</label>
+					<input type="text" class="form-control" name="username" />
+				</section>
+				<section class="form-group">
+					<label class="control-label">Password</label>
+					<input type="password" class="form-control" name="password" />
+				</section>
+				<div class="form-group">
+					<label class="control-label col-md-12"><span class="error-string">{{invalid_login}}</span></label>
+				</div>
+				<section class="form-group text-right">
+					<a href="/register" class="btn-link">New User?</a>
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</section>
+			</form>
+		</section>
+	</div>
+</body>
+</html>

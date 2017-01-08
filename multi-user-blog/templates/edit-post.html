@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Edit Post</title>
+
+	<link rel="stylesheet" href="/static/bootstrap.min.css">
+	<link rel="stylesheet" href="/static/main.css">
+	<link rel="stylesheet" href="/static/responsive.css">
+</head>
+
+<body>
+	{% extends "base.html" %}
+	{% block header %}
+	<div class="container">
+		<form action="/blog/editpost/{{post.key().id()}}" method="post">
+			<div class="form-group">
+				<label>Subject</label>
+				<input type="text" name="subject" value="{{post.subject}}" class="form-control" /><br />
+			</div>
+
+			<div class="form-group">
+				<label>Content</label>
+				<textarea name="content" cols="50" rows="20" class="form-control">{{post.content}}</textarea><br />
+				<span class="error-string">{{msg}}</span>
+			</div>
+
+			<div class="form-group text-right">
+				<a href="/blog" role="button" class="btn btn-default">Cancel</a>
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</div>
+		</form>
+	</div>
+	{% endblock %}
+</body>
+</html>

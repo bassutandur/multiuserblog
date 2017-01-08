@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Error</title>
+
+	<link rel="stylesheet" href="/static/bootstrap.min.css">
+	<link rel="stylesheet" href="/static/main.css">
+	<link rel="stylesheet" href="/static/responsive.css">
+</head>
+
+<body>
+	{% extends "base.html" %}
+	{% block header %}
+	<div class="error-string text-align-center">
+		{% if error %}
+		{{error}}
+		{% endif %}
+	</div>
+	{% endblock%}
+</body>
+</html>
+

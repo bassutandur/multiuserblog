@@ -1,0 +1,111 @@
+/* Blog Main Page*/
+body {
+	font-family: Tahoma, Helvetica, Arial, sans-serif;
+	background-color: #eee;
+}
+
+.container {
+	background-color: #fff;
+	margin-bottom: 2px;
+}
+
+.blog-holder {
+	margin: 0 auto;
+}
+
+.blog-header {
+	height: 140px;
+	padding-top: 5px;
+	color: #005a9c;
+	border-bottom: 3px solid #eee;
+}
+
+.blog-title {
+	font-size: 65px;
+}
+
+.blog-post {
+	width: 100%;
+	background-color: #fff;
+	padding: 10px;
+}
+
+.post-container {
+	border-bottom: 2px solid #eee;
+	padding-bottom: 10px;
+}
+
+.post-margin {
+	margin-bottom: 2px;
+}
+
+.user-name {
+	color: blue;
+}
+
+.comment-author {
+	font-style: italic;
+}
+
+.add-comment-button {
+	margin-top: 10px;
+}
+
+a:link {
+	text-decoration: none;
+}
+
+/*Login page*/
+.login-div {
+	width: 350px;
+	margin: 0 auto;
+	margin-top: 100px;
+}
+
+.login-container {
+	background-color: #eee;
+}
+
+.profile-img-card {
+	width: 96px;
+	height: 96px;
+	margin: 0 auto 10px;
+	display: block;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+}
+
+.title-header {
+	color: #005a9c;
+	text-align: center;
+}
+
+/*Signup*/
+
+.signup-container {
+	width: 400px;
+	margin: 0 auto;
+	margin-top: 100px;
+	padding: 20px;
+}
+
+/* common styling */
+
+.login-form, .signup-form {
+	background: #fff;
+	padding: 10px;
+}
+
+.error-string {
+	color: red;
+}
+
+.text-align-center {
+	text-align: center;
+}
+
+.no-posts {
+	background-color: yellow;
+	font-size: 25px;
+}

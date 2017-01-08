@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Edit Comment</title>
+
+	<link rel="stylesheet" href="/static/bootstrap.min.css">
+	<link rel="stylesheet" href="/static/main.css">
+	<link rel="stylesheet" href="/static/responsive.css">
+</head>
+
+<body>
+	{% extends "base.html" %}
+	{% block header %}
+	<div class="container">
+		<form action="/blog/editcomment/{{comment.key().id()}}" method="post">
+			<h4 class="title-header">Edit Comment</h4>
+			<section class="form-group">
+				<label class="control-label">New Comment</label>
+				<textarea name="comment" cols="50" rows="20" class="form-control">{{comment.comment}}</textarea><br />
+				<span class="error-string">{{msg}}</span>
+			</section>
+			<section class="form-group text-right">
+				<a href="/blog" role="button" class="btn btn-default">Cancel</a>
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</section>
+		</form>
+	</div>
+	{% endblock %}
+</body>
+</html>
