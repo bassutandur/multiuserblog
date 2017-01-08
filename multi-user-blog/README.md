@@ -29,7 +29,23 @@ The projected can be accessed on Google App Engine on following URL : https://ba
 
 <h4>Files included :</h4>
 <ul>
+	<li>user.py</li>
+	<li>post.py</li>
+	<li>comment.py</li>
+
 	<li>multiuser_blog.py</li>
+	<li>request.py</li>
+	<li>signup.py</li>
+	<li>edit_post.py</li>
+	<li>edit_comment.py</li>
+	<li>like_post.py</li>
+	<li>newpost.py</li>
+	<li>delete_post.py</li>
+	<li>add_comments.py</li>
+	<li>login.py</li>
+	<li>delete_comment.py</li>
+	<li>front.py</li>
+	<li>logout.py</li>
 	<li>base.html</li>
 	<li>blog.html</li>
 	<li>edit-comment.html</li>
