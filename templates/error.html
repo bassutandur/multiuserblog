@@ -1,0 +1,9 @@
+﻿{% extends "base.html" %}
+{% block header %}
+	<div class="error-string text-align-center">
+		{% if error %}
+		{{error}}
+		{% endif %}
+	</div>
+{% endblock%}
+

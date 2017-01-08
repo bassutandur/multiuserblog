@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Multi User Blog</title>
+
+	<link rel="stylesheet" href="/static/bootstrap.min.css">
+	<link rel="stylesheet" href="/static/main.css">
+	<link rel="stylesheet" href="/static/responsive.css">
+</head>
+
+<body>
+	{% extends "base.html" %}
+	{% block header %}
+	<div class="container">
+		{% if posts.count() == 0 %}
+		<div class="row">
+			<section class="col-xs-12 col-sm-12 col-md-12 text-center no-posts" style="margin-top:10px;">
+				No Posts to show
+			</section>
+		</div>
+		{% endif %}
+		{% for post in posts %}
+		<div class="row">
+			{% if user and post.created_by == user.name %}
+			<section class="col-xs-12 col-sm-12 col-md-12 text-right" style="margin-top:10px;">
+				<a href="/blog/editpost/{{post.key().id()}}" role="button" class="btn btn-warning">Edit Post</a>
+				<a href="/blog/deletepost/{{post.key().id()}}" role="button" class="btn btn-danger">Delete Post</a>
+			</section>
+			{% endif %}
+		</div>
+		<div class="row">
+			<section class="col-xs-12 col-sm-8 col-md-6">
+				<h3><a href="/blog/{{post.key().id()}}">{{post.subject}}</a></h3>
+			</section>
+			<section class="col-xs-12 col-sm-4 col-md-6 text-right">
+				<small>{{post.last_modified.strftime("%Y-%b-%d %H:%M:%S")}}</small>
+			</section>
+		</div>
+		<div class="row">
+			<section class="col-xs-12 col-sm-12 col-md-12">
+				<p>{{post.content}}</p>
+			</section>
+		</div>
+		<div class="row text-left">
+			<section class="col-xs-12 col-sm-12 col-md-12">
+				<a href="/blog/likepost/{{post.key().id()}}">
+					<img src="/static/thumb.jpg" style="width:24px;height:24px;" class="img-responsive" />
+				</a>
+				{{ post.likes }}<strong>&nbsp;Likes</strong>
+			</section>
+		</div>
+		<div class="row">
+			<label class="col-xs-12 col-sm-12 col-md-12">Comments :</label>
+		</div>
+
+		{% for c in comments %}
+		<div class="row">
+			{% if c.post_id == post.key().id() %}
+			{% if c.comment_by == user.name and c.post_id == post.key().id() %}
+			<section class="col-xs-12 col-sm-12 col-md-12">
+				<a href="/blog/deletecomment/{{c.key().id()}}">
+					<img src="/static/delete.svg" alt="Delete Comment" title="Delete Comment" />
+				</a>
+				<a href="/blog/editcomment/{{c.key().id()}}">
+					<img src="/static/edit.svg" alt="Edit Comment" title="Edit Comment" />
+				</a>
+			</section>
+			{% endif %}
+			<section class="col-xs-12 col-sm-12 col-md-12 comment-author">
+				<label>By&nbsp;</label><strong>{{c.comment_by}}</strong>
+				<label>&nbsp;on</label>
+				{{ c.last_modified.strftime("%Y-%b-%d %H:%M:%S") }}
+			</section>
+			{% endif %}
+		</div>
+
+		<div class="row text-left">
+			{%if c.post_id == post.key().id() %}
+			<section class="col-xs-12 col-sm-12 col-md-12"><p>{{c.comment}}</p></section>
+			{% endif %}
+		</div>
+
+		{% endfor %}
+		{% if user %}
+		<form action="/blog/addcomments/{{post.key().id()}}" method="post">
+			<section class="form-group text-right">
+				<section class="col-xs-12 col-sm-12 col-md-12">
+					<textarea rows="3" name="comment" placeholder="Write Comments..." class="form-control"></textarea>
+				</section>
+				<section class="col-xs-12 col-sm-12 col-md-12 post-container">
+					<button type="submit" class="btn btn-primary add-comment-button">Add Comment</button>
+				</section>
+			</section>
+		</form>
+		{% endif %}
+		{% endfor %}
+	</div>
+	{% endblock %}
+</body>
+</html>
