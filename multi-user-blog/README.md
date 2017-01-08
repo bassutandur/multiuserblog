@@ -1,6 +1,8 @@
 <h3>About Project</h3>
 <p>This project is developed as part of the Udacity's Fullstack Nanodegree program</p>
 
+The projected can be accessed on Google App Engine on following URL : https://bassublog.appspot.com
+
 <h4>Multi User Blog</h4>
 <p>Multi user blog allows users to create, edit, delete posts.
 	They can create as many posts as they want.
